@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KURO's Art Gallery</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			background: #000;
+			background-image:
+				radial-gradient(circle at 25% 25%, #111 0%, transparent 50%),
+				radial-gradient(circle at 75% 75%, #1a1a1a 0%, transparent 50%),
+				linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+			color: #fff;
+			min-height: 100vh;
+			overflow-x: hidden;
+		}
+
+		.container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		.header {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.header h1 {
+			font-size: 3rem;
+			margin-bottom: 15px;
+			background: linear-gradient(45deg, #ffffff, #cccccc, #888888);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			font-weight: 700;
+			letter-spacing: -1px;
+		}
+
+		.header p {
+			font-size: 1.1rem;
+			opacity: 0.7;
+			color: #cccccc;
+			max-width: 600px;
+			margin: 0 auto;
+			line-height: 1.5;
+		}
+
+		.grid-gallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 30px;
+		}
+
+		.inscription-card {
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 15px;
+			overflow: hidden;
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			transition: all 0.3s ease;
+			position: relative;
+		}
+
+		.inscription-card:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0.2);
+		}
+
+		.inscription-frame {
+			width: 100%;
+			aspect-ratio: 1;
+			border: none;
+			border-radius: 10px 10px 0 0;
+			background: #000;
+		}
+
+		.card-info {
+			padding: 20px;
+		}
+
+		.card-title {
+			font-size: 1.4rem;
+			font-weight: 600;
+			margin-bottom: 8px;
+			color: #4ecdc4;
+		}
+
+		.card-collection {
+			display: inline-block;
+			font-size: 0.9rem;
+			color: #ff6b6b;
+			text-decoration: none;
+			font-weight: 500;
+			margin-bottom: 10px;
+			transition: all 0.3s ease;
+			border-bottom: 1px solid transparent;
+		}
+
+		.card-collection:hover {
+			color: #ff8e8e;
+			border-bottom-color: #ff8e8e;
+			transform: translateX(2px);
+		}
+
+		.card-description {
+			font-size: 0.95rem;
+			line-height: 1.4;
+			opacity: 0.8;
+		}
+
+		/* レスポンシブ対応 */
+		@media (max-width: 768px) {
+			.grid-gallery {
+				grid-template-columns: 1fr;
+			}
+
+			.header h1 {
+				font-size: 2rem;
+			}
+		}
+
+		/* ローディングアニメーション */
+		.loading {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 200px;
+			font-size: 1.2rem;
+			opacity: 0.7;
+		}
+
+		.loading::after {
+			content: '...';
+			animation: dots 1.5s infinite;
+		}
+
+		@keyframes dots {
+
+			0%,
+			20% {
+				content: '';
+			}
+
+			40% {
+				content: '.';
+			}
+
+			60% {
+				content: '..';
+			}
+
+			80%,
+			100% {
+				content: '...';
+			}
+		}
+
+		/* エラー表示 */
+		.error {
+			background: rgba(255, 107, 107, 0.2);
+			border: 1px solid rgba(255, 107, 107, 0.5);
+			padding: 20px;
+			border-radius: 10px;
+			text-align: center;
+			color: #ff6b6b;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>KURO's Art Gallery</h1>
+			<p>Interactive & Generative Art Collections Inscribed on BSV Blockchain.</p>
+		</div>
+
+		<div class="grid-gallery">
+			<div class="inscription-card">
+				<iframe class="inscription-frame"
+					src="https://ordfs.network/content/b7b5569e40bc668617600907b47faca6b6ee70347b82af76e2f5410b5a853f8e_0"
+					loading="lazy">
+				</iframe>
+				<div class="card-info">
+					<div class="card-title">SiCK</div>
+					<a href="https://3dordi.io/collections?search=45419b538ca4263fd89284115c0010710b17ca7dc18fb1bca33f448bb7422845_0"
+						class="card-collection">WiZ MUSiC</a>
+					<div class="card-description">6 Interactive Sound Art Collection. ( Music by saibapunku). These 3D generative arts can be manipulated, and the art can
+					be awakened by turning on the sound button. Always with you and music.</div>
+				</div>
+			</div>
+
+
+			<div class="inscription-card">
+				<iframe class="inscription-frame"
+					src="https://ordfs.network/content/169b349d73e35195290438ca10849661f985747d49b6966890e9f5f9357f40f6_0"
+					loading="lazy">
+				</iframe>
+				<div class="card-info">
+					<div class="card-title">Founder Phoenix</div>
+					<a href="https://3dordi.io/collections?search=2151d52ba1120b22adfba39c8e6aebfca0a4b66c5ece725d35be595aa670d703_0"
+						class="card-collection">Phoenix Vision</a>
+					<div class="card-description">Phoenix artworks are interactive recursive inscriptions created
+					from photographs of flames, where changing the block height triggers sound generated from the BSV
+					hash as a seed.</div>
+				</div>
+			</div>
+
+			<div class="inscription-card">
+				<iframe class="inscription-frame"
+					src="https://ordfs.network/content/5f80bb8351d125fbe157d6672008cd8fded56d046d01a307188f36e80d449ef4_0"
+					loading="lazy">
+				</iframe>
+				<div class="card-info">
+					<div class="card-title">Satoshi Vision Clock</div>
+					<a href="https://3dordi.io/collections?search=429c4c1df891407748900c85c0c511cca2640fb60f108cde2b9897ef7477d129_0"
+						class="card-collection">Wiz U -sounds-</a>
+					<div class="card-description">Interactive art linked to the BSV chain that changes with each
+					block and allows users to manipulate it and play sounds.
+					</div>
+				</div>
+			</div>
+
+			<div class="inscription-card">
+				<iframe class="inscription-frame"
+					src="https://ordfs.network/content/a3f6fcd59f6bcbf7e12c96c8024aa64e4955ed3e1804f5d14c96412c21fa6f40_0"
+					loading="lazy">
+				</iframe>
+				<div class="card-info">
+					<div class="card-title">Charizard SV -Recursive-</div>
+					<a href="https://3dordi.io/ordinal/2b1e2ee0ebea130552fca1ad9b03ce4a3a75f671970f37469db1aa4fbddf00f0_0"
+						class="card-collection">Charizard SV -Recursive-</a>
+					<div class="card-description">Interactive Charizard artwork by Soysauce with particle effects and music</div>
+				</div>
+			</div>
+
+			<div class="inscription-card">
+				<iframe class="inscription-frame"
+					src="https://ordfs.network/content/35e00f63f105704ac7232f5129d93f15e462aa46962ff8a703c832945c887b05_0"
+					loading="lazy">
+				</iframe>
+				<div class="card-info">
+					<div class="card-title">Leaf Shadow</div>
+					<a href="https://3dordi.io/collections?search=0eee6b6c46d2eab113c2a0a06e53b2929d3e315cfe344ac96aa611faef3d5d42_0"
+						class="card-collection">Color Finder</a>
+					<div class="card-description">masapon's photo art with interactive color modes linked to the BSV
+						hash.</div>
+				</div>
+			</div>
+
+			<div class="inscription-card">
+				<iframe class="frame"
+					src="https://ordfs.network/content/ff16663400aa8eb4ee821861bbe9c7a26b8e5d1042b27048b6c75c3c4769e979_0"
+					loading="lazy">
+				</iframe>
+				<div class="card-info">
+					<div class="card-title">Sync Chain</div>
+					<a href="https://3dordi.io/ordinal/ac9e680da9501525c31d10e7becb5cbffd26f7e68ac5669c3acffd56cfc13171_0"
+						class="card-collection">Sync chain</a>
+					<div class="card-description">Generative art that combines BSV block information and Soysauce's art.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// iframeのロード状態を監視
+document.querySelectorAll('iframe').forEach(iframe => {
+const card = iframe.closest('.inscription-card');
+
+// ローディング表示
+if (card) {
+const loading = document.createElement('div');
+loading.className = 'loading';
+loading.textContent = 'Loading inscription';
+card.appendChild(loading);
+}
+
+iframe.addEventListener('load', () => {
+console.log('Inscription loaded:', iframe.src);
+if (card) {
+const loading = card.querySelector('.loading');
+if (loading) loading.remove();
+}
+});
+
+iframe.addEventListener('error', () => {
+console.error('Failed to load inscription:', iframe.src);
+if (card) {
+const loading = card.querySelector('.loading');
+if (loading) loading.remove();
+
+const error = document.createElement('div');
+error.className = 'error';
+error.innerHTML = '<strong>Failed to load inscription</strong><br>URL may be invalid or content unavailable';
+card.appendChild(error);
+}
+});
+});
+
+// 動的に新しいInscriptionを追加する関数
+function addInscription(containerId, inscriptionUrl, title, collectionName, collectionUrl, description) {
+const container = document.getElementById(containerId);
+if (!container) return;
+
+const card = document.createElement('div');
+card.className = 'inscription-card';
+
+card.innerHTML = `
+<iframe 
+class="inscription-frame"
+src="${inscriptionUrl}"
+loading="lazy">
+</iframe>
+<div class="card-info">
+<div class="card-title">${title}</div>
+<a href="${collectionUrl}" class="card-collection">${collectionName}</a>
+<div class="card-description">${description}</div>
+</div>
+`;
+
+container.appendChild(card);
+}
+	</script>
+</body>
+
+</html>
